@@ -1,0 +1,26 @@
+$color_white: #FFFFFF;
+$color_black: #000000;
+$color_blue: #005EB8;
+$color_blue_light: #8DB1D3;
+
+@mixin breakpoint($point) {
+    // Desktop HIDPI
+    @if $point == large {
+        @media (max-width: 1920px) {@content;}
+    }
+    // Desktop HIDPI
+    @else if $point == medium {
+        @media (max-width: 1440px) {@content;}
+    }
+    // Tablet
+    @else if $point == tabletLandscape {
+        @media (max-width: 1080px) {@content;}
+    }
+    @else if $point == tabletPortrait {
+        @media (max-width: 1080px) and (orientation: portrait), (max-width: 926px) and (orientation: landscape), (max-width: 428px) and (orientation: portrait) {@content;}
+    }
+    // Mobile
+    @else if $point == mobile {
+        @media (max-width: 926px) and (orientation: landscape), (max-width: 428px) and (orientation: portrait) {@content;}
+    }
+}
